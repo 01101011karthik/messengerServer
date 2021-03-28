@@ -5,7 +5,7 @@ const http = require('http').Server(app)
 
 const io = require('socket.io')(http, {
     cors: {
-        origin: 'http://localhost:3000'
+        origin: 'https://sockettypemessengerapp.herokuapp.com'
     }
 });
 
@@ -19,12 +19,12 @@ io.use((socket, next) => {
 });
 
 app.use(CORS({
-    origin: ['http://localhost:3000'],
+    origin: ['http://localhost:3000', 'https://sockettypemessengerapp.herokuapp.com'],
     credentials: true
 }))
 
 app.get('/', (req, res) => {
-    res.send(loggedInUsers)
+    res.send('success')
 })
 
 app.get('/clear', (req, res) => {
