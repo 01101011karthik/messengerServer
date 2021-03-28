@@ -6,11 +6,11 @@ const dotenv = require('dotenv');
 const http = require('http').Server(app);
 
 
-const io = require('socket.io')(http, {
-    cors: {
-        origin: 'https://sockettypemessengerapp.herokuapp.com'
-    }
-});
+// const io = require('socket.io')(http, {
+//     cors: {
+//         origin: 'https://sockettypemessengerapp.herokuapp.com'
+//     }
+// });
 
 //config
 dotenv.config({path: path.resolve(__dirname, './.env')})
@@ -26,7 +26,7 @@ const port = process.env.PORT;
 // });
 
 app.use(CORS({
-    origin: ['http://localhost:3000', 'https://sockettypemessengerapp.herokuapp.com'],
+    origin: ['https://sockettypemessengerapp.herokuapp.com'],
     credentials: true
 }))
 
@@ -83,4 +83,4 @@ app.get('/clear', (req, res) => {
 //     });
 // })
 
-http.listen(5000, () => console.log('listening on 3000'))
+http.listen(port, () => console.log('listening on 3000'))
