@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const CORS = require('cors');
 const dotenv = require('dotenv');
-const http = require('http').Server(app);
+// const http = require('http').Server(app);
 
 
 // const io = require('socket.io')(http, {
@@ -83,4 +83,4 @@ app.get('/clear', (req, res) => {
 //     });
 // })
 
-http.listen(port, () => console.log('listening on 3000'))
+app.listen(port, () => console.log('listening on 3000'))
